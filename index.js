@@ -36,9 +36,23 @@ app.post('/start', (request, response) => {
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
-  const gameData = request.body.you;
-  console.log(gameData);
-  const directions = ['up', 'down', 'left', 'right'];
+  const gameData = request.body;
+  const snake = gameData.you;
+
+  const directions = [];
+
+  if (snake.body[0].x > 0) {
+    directions.push('left');
+  }
+  if (snake.body[0].y > 0) {
+    directions.push('up');
+  }
+  if (snake.body[0].x < gameData.board.width){
+    directions.push('right');
+  }
+  if (snake.body[0].y < gameData.board.height){
+    directions.push('left');
+  }
   // Response data
   const nextMove = directions[Math.floor(Math.random()*directions.length)];
 
