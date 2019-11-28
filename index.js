@@ -36,9 +36,11 @@ app.post('/start', (request, response) => {
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
-  const moves = ['up', 'down', 'left', 'right'];
+  const gameData = request.body;
+  console.log(gameData);
+  const directions = ['up', 'down', 'left', 'right'];
   // Response data
-  const nextMove = moves[Math.floor(Math.random()*moves.length)];
+  const nextMove = directions[Math.floor(Math.random()*directions.length)];
 
   console.log("Next move is " + nextMove);
   const data = {
