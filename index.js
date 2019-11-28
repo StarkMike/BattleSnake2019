@@ -43,12 +43,12 @@ app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   state = request.body;
   let mySnake = helper.getSnake(state);
-  let directions = [];
+
   let head = mySnake.body[0];
   let tail = mySnake.body[-1];
 
   // Response data
-  const possibilities = helper.generateMove(state);
+  let possibilities = helper.generateMove(state);
   const nextMove = possibilities[Math.floor(Math.random()*possibilities.length)];
 
   console.log("Next move is " + nextMove);

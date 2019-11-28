@@ -4,7 +4,6 @@ let floodFill = require('n-dimensional-flood-fill');
 const getSnake = (state, snakeId)  => {
   if (!snakeId) snakeId = state.you.id;
   for (let snake of state.board.snakes) {
-    console.log(snake);
     if (snake.id == snakeId) return snake;
   }
 }
@@ -14,7 +13,7 @@ const generateMove = (state) => {
   let possibleMoves = ['up', 'down', 'left', 'right'];
   let grid = new PF.Grid(state.board.width, state.board.height);
   let dangerousFlag = false;
-  let cornerMove = cornerMove(state);
+  let cornerMove = checkCorners(state);
 
   if (cornerMove) {
     console.log("CORNER!!!");
