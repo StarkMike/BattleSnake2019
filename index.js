@@ -43,7 +43,7 @@ app.post('/start', (request, response) => {
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   state = request.body;
-
+  console.log(state);
   let mySnake = getSnake(state);
   console.log(mySnake);
   let directions = [];
