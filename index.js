@@ -38,8 +38,11 @@ app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   const moves = ['up', 'down', 'left', 'right'];
   // Response data
+  const nextMove = moves[Math.floor(Math.random()+moves.length)];
+
+  console.log("Next move is " + nextMove);
   const data = {
-    move: moves[Math.floor(Math.random()+moves.length)],
+    move: nextMove,
   }
 
   return response.json(data)
