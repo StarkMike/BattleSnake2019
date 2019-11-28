@@ -29,7 +29,7 @@ app.post('/start', (request, response) => {
   const data = {
     color: '#222c75',
     name: 'STARK',
-    head_url: 'https://avatars2.githubusercontent.com/u/1548764?s=460&v=4',
+    head_url: 'https://imgur.com/G3ZAbem',
     taunt: 'I will win'
   }
 
