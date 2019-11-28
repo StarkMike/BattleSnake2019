@@ -27,7 +27,10 @@ app.post('/start', (request, response) => {
 
   // Response data
   const data = {
-    color: '#DFFF00',
+    color: '#222c75',
+    name: 'STARK',
+    head_url: 'https://avatars2.githubusercontent.com/u/1548764?s=460&v=4',
+    taunt: 'I will win'
   }
 
   return response.json(data)
@@ -41,7 +44,9 @@ app.post('/move', (request, response) => {
 
   const directions = [];
 
-  console.log(snake.body[0]);
+  const head = snake.body[0];
+
+  console.log(head);
   if (snake.body[0].x > 0) {
     directions.push('left');
   }
