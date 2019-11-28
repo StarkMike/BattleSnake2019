@@ -17,9 +17,12 @@ const generateMove = (state) => {
   let cornerMove = cornerMove(state);
 
   if (cornerMove) {
+    console.log("CORNER!!!");
+    console.log(cornerMove);
     return cornerMove;
   }else {
     possibleMoves = checkWalls(state, possibleMoves);
+    console.log(possibleMoves);
   }
 
   return possibleMoves;
