@@ -43,8 +43,6 @@ app.post('/start', (request, response) => {
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   state = request.body;
-  console.log(state);
-  console.log(state.board.snakes);
   let mySnake = getSnake(state);
   console.log("MY SNAKE");
   console.log(mySnake);
