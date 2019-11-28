@@ -31,7 +31,6 @@ app.post('/start', (request, response) => {
   // Response data
   const data = {
     color: '#222c75',
-    name: 'STARK',
     headType: 'fang',
     tailType: 'freckled'
   }
@@ -44,26 +43,13 @@ app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   state = request.body;
   let mySnake = helper.getSnake(state);
-  console.log("MY SNAKE");
-  console.log(mySnake);
   let directions = [];
-  const head = mySnake.body[0];
+  let head = mySnake.body[0];
+  let tail = mySnake.body[-1];
 
-  console.log(head);
-  if (head.x > 0) {
-    directions.push('left');
-  }
-  if (head.y > 0) {
-    directions.push('up');
-  }
-  if (head.x < gameData.board.width){
-    directions.push('right');
-  }
-  if (head.y < gameData.board.height){
-    directions.push('left');
-  }
   // Response data
-  const nextMove = directions[Math.floor(Math.random()*directions.length)];
+  const possibilities = helper.generateMove(state);
+  const nextMove = possibilities[Math.floor(Math.random()*possibilities.length)];
 
   console.log("Next move is " + nextMove);
   const data = {
