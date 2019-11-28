@@ -29,8 +29,8 @@ app.post('/start', (request, response) => {
   const data = {
     color: '#222c75',
     name: 'STARK',
-    head_url: 'https://imgur.com/G3ZAbem',
-    taunt: 'I will win'
+    headType: 'fang',
+    tailType: 'freckled'
   }
 
   return response.json(data)
