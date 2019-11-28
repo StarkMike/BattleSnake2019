@@ -45,6 +45,7 @@ app.post('/move', (request, response) => {
   state = request.body;
 
   let mySnake = getSnake(state);
+  console.log(mySnake);
   let directions = [];
   const head = mySnake.body[0];
 
