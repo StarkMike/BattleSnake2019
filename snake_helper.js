@@ -78,27 +78,27 @@ function checkCorners(state) {
     var bodyData = state.you.body;
     if (bodyData[0].x === 0 && bodyData[0].y === 0) {
         if (bodyData[1].y === 1) {
-            return 'right';
+            return ['right'];
         } else if (bodyData[1].x === 1) {
-            return 'down';
+            return ['down'];
         }
     } else if (bodyData[0].x === state.board.width - 1 && bodyData[0].y === 0) {
         if (bodyData[1].x === state.board.width - 2) {
-            return 'down';
+            return ['down'];
         } else if (bodyData[1].y === 1) {
-            return 'left';
+            return ['left'];
         }
     } else if (bodyData[0].x === 0 && bodyData[0].y === state.board.height - 1) {
         if (bodyData[1].y === state.board.height - 2) {
-            return 'right';
+            return ['right'];
         } else if (bodyData[1].x === 1) {
-            return 'up';
+            return ['up'];
         }
     } else if (bodyData[0].x === state.board.width - 1 && bodyData[0].y === state.board.height - 1) {
         if (bodyData[1].y === state.board.height - 2) {
-            return 'left';
+            return ['left'];
         } else if (bodyData[1].x === state.board.width - 2) {
-            return 'up';
+            return ['up'];
         }
     } else {
         return false;
