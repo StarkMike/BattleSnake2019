@@ -8,6 +8,9 @@ const {
   genericErrorHandler,
   poweredByHandler
 } = require('./handlers.js')
+const getSnake = require('./snake_helper');
+
+let state = {};
 
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
@@ -24,7 +27,7 @@ app.use(poweredByHandler)
 // Handle POST request to '/start'
 app.post('/start', (request, response) => {
   // NOTE: Do something here to start the game
-
+  state = request.body;
   // Response data
   const data = {
     color: '#222c75',
@@ -39,24 +42,23 @@ app.post('/start', (request, response) => {
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
-  const gameData = request.body;
-  const snake = gameData.you;
+  state = request.body;
 
-  const directions = [];
-
-  const head = snake.body[0];
+  let mySnake = getSnake(state);
+  let directions = [];
+  const head = mySnake.body[0];
 
   console.log(head);
-  if (snake.body[0].x > 0) {
+  if (head.x > 0) {
     directions.push('left');
   }
-  if (snake.body[0].y > 0) {
+  if (head.y > 0) {
     directions.push('up');
   }
-  if (snake.body[0].x < gameData.board.width){
+  if (head.x < gameData.board.width){
     directions.push('right');
   }
-  if (snake.body[0].y < gameData.board.height){
+  if (head.y < gameData.board.height){
     directions.push('left');
   }
   // Response data
