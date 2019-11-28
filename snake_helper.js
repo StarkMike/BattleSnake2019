@@ -24,7 +24,35 @@ const generateMove = (state) => {
     console.log(possibleMoves);
   }
 
+  possibleMoves = checkCollision(state, possibleMoves);
   return possibleMoves;
+}
+
+function checkCollision(state, possibleMoves) {
+  let head = state.you.body[0];
+  let body = state.you.body;
+  let nextMove = head;
+  for (let move of possibleMoves) {
+    switch(move) {
+      case 'up':
+        nextMove.y++;
+        break;
+      case 'down':
+        nextMove.y--;
+        break;
+      case 'left':
+        nextMove.x--;
+        break;
+      case 'right':
+        nextMove.x++;
+        break;
+      default:
+        console.log("I broke!");
+    }
+    if (body.indexOf(nextMove) >= 0) {
+      possibleMoves.splice(possibleMoves.splice(move), 1);
+    }
+  }
 }
 
 function checkWalls(state, possibleMoves) {
