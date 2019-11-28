@@ -11,7 +11,6 @@ const getSnake = (state, snakeId)  => {
 const generateMove = (state) => {
   let generatedMove = undefined;
   let possibleMoves = ['up', 'down', 'left', 'right'];
-  let grid = new PF.Grid(state.board.width, state.board.height);
   let dangerousFlag = false;
   let cornerMove = checkCorners(state);
 
@@ -21,6 +20,7 @@ const generateMove = (state) => {
     return cornerMove;
   }else {
     possibleMoves = checkWalls(state, possibleMoves);
+    console.log(state.you.body);
     console.log(possibleMoves);
   }
 
