@@ -41,6 +41,7 @@ app.post('/move', (request, response) => {
 
   const directions = [];
 
+  console.log(snake.body[0]);
   if (snake.body[0].x > 0) {
     directions.push('left');
   }
