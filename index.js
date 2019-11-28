@@ -8,7 +8,7 @@ const {
   genericErrorHandler,
   poweredByHandler
 } = require('./handlers.js')
-const getSnake = require('./snake_helper');
+const helper = require('./snake_helper');
 
 let state = {};
 
@@ -43,7 +43,7 @@ app.post('/start', (request, response) => {
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
   state = request.body;
-  let mySnake = getSnake(state);
+  let mySnake = helper.getSnake(state);
   console.log("MY SNAKE");
   console.log(mySnake);
   let directions = [];
