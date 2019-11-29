@@ -15,13 +15,9 @@ const generateMove = (state) => {
   let cornerMove = checkCorners(state);
 
   if (cornerMove) {
-    console.log("CORNER!!!");
-    console.log(cornerMove);
     return cornerMove;
   }else {
     possibleMoves = checkWalls(state, possibleMoves);
-    console.log(state.you.body);
-    console.log(possibleMoves);
   }
 
   possibleMoves = checkCollision(state, possibleMoves);
@@ -54,6 +50,7 @@ function checkCollision(state, possibleMoves) {
       possibleMoves.splice(possibleMoves.indexOf(move), 1);
     }
   }
+  return possibleMoves;
 }
 
 function checkWalls(state, possibleMoves) {
