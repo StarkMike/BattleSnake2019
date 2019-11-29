@@ -50,7 +50,8 @@ function checkCollision(state, possibleMoves) {
         console.log("I broke!");
     }
     if (body.indexOf(nextMove) >= 0) {
-      possibleMoves.splice(possibleMoves.splice(move), 1);
+      console.log("COLLISION!!!");
+      possibleMoves.splice(possibleMoves.indexOf(move), 1);
     }
   }
 }
